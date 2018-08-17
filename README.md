@@ -7,3 +7,4 @@ ONSIP server is used in this project for signalling, This can also be done by FR
 You have to set up the database accordingly for login and signup,rest is all client side.
 
 Many interface based ( html,css) modifications are still required in addition to changes in code.
+All types of CONTRIBUTIONS are welcomed!.
