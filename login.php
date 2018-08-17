@@ -1,0 +1,40 @@
+<?php
+session_start();
+$_SESSION['num'] = '1';
+?>
+
+
+<DOCTYPE! html>
+<html>
+<head>
+  <title>Login Form</title>
+</head>
+<body id="loginBody">
+
+ <link rel="stylesheet" type="text/css" href="styles.css">
+ 
+ <center><div style="width: 600px" style="height: 600px">
+
+ <form action="process.php" method = "POST" style="border:1px solid #ccc">
+  <div class="container">
+    <h1 class="heading1">Log In</h1>
+    <p id="d1" style="color:red">Please fill in this form to Log in</p>
+    <hr>
+
+    <label for="email" class="heading"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"  class="heading"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required> 
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Log in</button>
+    </div>
+  </div>
+</form>
+
+</div></center>
+
+</body>
+</html>
+

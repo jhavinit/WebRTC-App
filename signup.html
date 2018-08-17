@@ -1,0 +1,108 @@
+<DOCTYPE! html>
+<html>
+<head>
+  <title>Signup Form</title>
+</head>
+<body id="signupBody">
+
+ <link rel="stylesheet" type="text/css" href="styles.css">
+ 
+ <center><div style="width: 600px" style="height: 600px">
+
+ <form name="myforms" action="signup.php" method="POST" style="border:1px solid #ccc" onsubmit="return validateForm()">
+  <div class="container">
+    <h1 class="heading1">Sign Up</h1>
+    <p id="d1">Please fill in this form to create an account</p>
+    <hr>
+
+    <label for="email" class="heading"><b>Email</b></label>
+    <input id="emailIpt" type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"  class="heading"><b>Password</b></label><div id="pswStrength" style="display: none">Weak</div>
+    <input id="pswId" type="password" placeholder="Must be mpre than 4 charectors" name="psw" required>
+
+    <label for="psw-repeat"  class="heading"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" onmousedown="strength()" required>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px" style="color: green"> Remember me
+    </label>
+
+    <p id="d1">By creating an account you agree to our <a href="#" style="color:maroon">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </div>
+</form>
+
+</div></center>
+<script type="text/javascript">
+
+  function validateForm(){
+   var x=document.forms["myforms"]["email"].value;
+   var atpos=x.indexOf("@");
+   var dotpos=x.lastIndexOf(".");
+   if(atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+   {
+    alert("NOT A VALID GMAIL ACCOUNT !!");
+    return false;
+   }
+}
+
+function strength(){
+  var y=document.getElementById('pswId').value;
+  var pswLen=y.length;
+  var t1=/\d/.test(y);
+  var t2=/\w/.test(y);
+  var t1=/\D/.test(y);
+  if(pswLen>6)
+  {
+    document.getElementById('pswStrength').style.display="block";
+    document.getElementById('pswStrength').innerHTML="STRONG";
+    document.getElementById('pswStrength').style.backgroundColor="green";
+  }
+  else if(t1){
+    document.getElementById('pswStrength').style.display="block";
+    document.getElementById('pswStrength').innerHTML="WEAK";
+    document.getElementById('pswStrength').style.backgroundColor="red";
+    
+  }
+  else if(t1 && t2)
+ {
+    document.getElementById('pswStrength').style.display="block";
+    document.getElementById('pswStrength').innerHTML="MEDIUM";
+    document.getElementById('pswStrength').style.backgroundColor="orange";
+  }
+  else if(t1 && t2 && t3)
+  {
+    document.getElementById('pswStrength').style.display="block";
+    document.getElementById('pswStrength').innerHTML="STRONG";
+    document.getElementById('pswStrength').style.backgroundColor="green";
+  }
+  else{
+    document.getElementById('pswStrength').style.display="block";
+    document.getElementById('pswStrength').innerHTML="WEAK";
+    document.getElementById('pswStrength').style.backgroundColor="red";
+    
+  }
+}
+
+</script>
+</body>
+</html>
+
+<script type="text/javascript">
+  var url = window.location.href;
+  if(url.indexOf('status=2') != -1)
+  {
+    alert('Email already exists.');
+    window.location.href = 'signup.html';
+  }
+  else if(url.indexOf('status=3') != -1)
+  {
+    alert('Password did not match.');
+    window.location.href = 'signup.html';
+  }
+</script>
